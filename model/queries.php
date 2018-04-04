@@ -1,0 +1,31 @@
+<?php
+    class Model{
+        public $pdo;
+
+        function q_login(string $username, string $pwd){
+            $stmt = $this->pdo->prepare('SELECT pwd FROM users WHERE username = ?');
+            $stmt->execute($username);
+            if($hash = $stmt->fetch() && password_verify($pwd, $hash)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    
+        function q_register(string $username, string $pwd){
+            $stmt = $this->pdo->prepare('SELECT COUNT(username) FROM users WHERE username = ?');
+            $stmt->execute($username);
+            if($stmt->fetch() == 0)
+                return false;
+            $stmt = $this->pdo->prepare('INSERT INTO users(username, pwd, reg_date) VALUES(?, ?, ?)');
+            $stmt->execute($username, $pwd, time());
+    
+            return true;
+        }
+    }
+    
+
+    
+
+?>

@@ -41,7 +41,7 @@
         
         
         <li><a href="">Mettre en ligne</a></li>
-        <li><a href="">Compte</a></li>
+        <li><a href="connection.view.php">Compte</a></li>
       </ul>
     </div>
   </nav>

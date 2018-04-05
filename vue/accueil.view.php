@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ourtube</title>
-</head>
-<h1>Ourtube</h1>
-<body>
-<form action="index.php" method="GET">
-<fieldset>
-<p>Entrer votre prénom : </p>
-<input type="texte" name="prenom" autofocus/>
-<input type="submit" name="action" value="Valider" />
-</fieldset>
-</form>
-</body>
-</html>
-
-<!DOCTYPE html>
 
 <html>
 
@@ -48,6 +28,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Ourtube</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+          <form action="resultat.php" method="GET">
+          <input type="text" placeholder="Search..">
+          
+          </form>
+        </li>
+        
+        
+        <li><a href="">Mettre en ligne</a></li>
+        <li><a href="">Compte</a></li>
+      </ul>
+    </div>
+  </nav>
     
 
   </body>

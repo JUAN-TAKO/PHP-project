@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
-    <?php echo "Error : $error_message" ?>
+
+    <?php $err = $_GET['error']; echo "Error : $err"; ?>
 </body>
 </html>

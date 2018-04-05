@@ -1,9 +1,13 @@
+PRAGMA foreign_keys=ON;
 CREATE TABLE IF NOT EXISTS USERS (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
     username TEXT(64) NOT NULL UNIQUE,
     pwd TEXT,
-    reg_date INTEGER
+    reg_date INTEGER,
+
+    session_cookie TEXT(16),
+    cookie_date INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS VIDEOS(
@@ -51,14 +55,4 @@ CREATE TABLE IF NOT EXISTS VIDEO_TAGS(
     FOREIGN KEY(tag) REFERENCES TAGS(tag),
 
     PRIMARY KEY(vid_id, tag)
-);
-
-CREATE TABLE IF NOT EXISTS SESSIONS(
-    
-    user_id INTEGER,
-    cookie TEXT(16),
-    creation_date INTEGER,
-
-    FOREIGN KEY(user_id) REFERENCES USERS(id),
-    PRIMARY KEY(user_id)
 );

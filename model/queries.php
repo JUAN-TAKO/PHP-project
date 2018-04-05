@@ -5,11 +5,16 @@
         function q_login(string $username, string $pwd){
             $stmt = $this->pdo->prepare('SELECT pwd FROM users WHERE username = ?');
             $stmt->execute($username);
-            if($hash = $stmt->fetch() && password_verify($pwd, $hash)){
-                return true;
+            if($hash = $stmt->fetch()){
+                if(password_verify($pwd, $hash)){
+                    return 0;
+                }
+                else{
+                    return 2;
+                }
             }
             else{
-                return false;
+                return 1;
             }
         }
     

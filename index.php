@@ -37,12 +37,12 @@
         }
 
         else if($act == "login_page"){
-            $connexionIsLogin = true;
+            $isLog = true;
             include 'connection.view.php';
         }
 
         else if($act == "register_page"){
-            $connexionIsLogin = false;
+            $isLog = false;
             include 'connection.view.php';
         }
 

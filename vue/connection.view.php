@@ -1,6 +1,10 @@
+<?php
+global $isLog;
+?>
 <!DOCTYPE html>
 
 <html>
+
 
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,7 +49,7 @@
       <div class="section"></div>
 
       <h5 class="indigo-text"><?php 
-      if(!isset($_GET['act']) || $_GET['act'] == 'log')
+      if($isLog)
         echo 'Please, login into your account';
       else
         echo 'Create a new account'
@@ -55,7 +59,7 @@
       <div class="container">
         <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-          <form class="col s12" action="../action.handler.php?act=<?php if(!isset($_GET['act']) || $_GET['act'] == 'log') echo 'login'; else echo 'register'; ?>" method="post">
+          <form class="col s12" action="../index.php?act=<?php if($isLog) echo 'login'; else echo 'register'; ?>" method="post">
             <div class='row'>
               <div class='col s12'>
               </div>
@@ -81,13 +85,13 @@
             <br />
             <center>
               <div class='row'>
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'> <?php if($isLog) echo 'Login'; else echo 'Create account'; ?></button>
               </div>
             </center>
           </form>
         </div>
       </div>
-      <a href="../action.handler.php?act=register_page">Create account</a>
+      <?php if(!$isLog) echo '<a href="../action.handler.php?act=register_page">Create account</a>'; ?>
     </center>
 
     <div class="section"></div>

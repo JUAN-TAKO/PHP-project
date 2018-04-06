@@ -1,3 +1,6 @@
+<?php
+global $error;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +12,6 @@
 </head>
 <body>
 
-    <?php $err = $_GET['error']; echo "Error : $err"; ?>
+    <?php echo "Error : $error"; ?>
 </body>
 </html>

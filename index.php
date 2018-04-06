@@ -1,3 +1,3 @@
 <?php
-    header('Location:vue/action.handler.php');
+    header('Location:action.handler.php');
 ?>

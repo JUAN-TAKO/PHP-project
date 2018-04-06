@@ -22,9 +22,11 @@
                 return -1;
         }
 
-        function q_login_cookie(string $cookie){
-            $stmt = $this->pdo->prepare('SELECT id, cookie_date FROM users WHERE session_cookie = ?');
-            $stmt->execute([$cookie]);
+        function q_login_cookie(string $cookie, int $cookieValidityTime){
+
+            $dateMin = time() - $cookieValidityTime;
+            $stmt = $this->pdo->prepare('SELECT id, cookie_date FROM users WHERE session_cookie = ? AND date_cookie > ?');
+            $stmt->execute([$cookie, $dateMin]);
             $res;
             if($res = $stmt->fetch()){
                 $id = $res['id'];
@@ -50,8 +52,8 @@
             if($stmt->fetchColumn() != 0)
                 return false;
             $pass = password_hash($pwd, PASSWORD_DEFAULT);
-            $stmt = $this->pdo->prepare('INSERT INTO users(username, pwd, reg_date) VALUES(?, ?, ?)');
-            $stmt->execute([$username, $pass, time()]);
+            $stmt = $this->pdo->prepare('INSERT INTO users(username, pwd, reg_date, session_cookie, cookie_date) VALUES(?, ?, ?, ?)');
+            $stmt->execute([$username, $pass, time(),random_bytes(16) ,time()]);
     
             return true;
         }

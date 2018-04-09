@@ -29,7 +29,7 @@
 
     <nav>
       <div class="nav-wrapper red darken-1">
-        <a href="." class="brand-logo" style="color:yellow;">Ourtube</a>
+        <a href="index.php" class="brand-logo" style="color:yellow;">OurTube</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
             <form action="resultat.php" method="GET">

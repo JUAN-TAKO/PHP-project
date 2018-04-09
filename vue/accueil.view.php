@@ -30,26 +30,11 @@
 
     <div class="row">
       <div class="col s2 grey lighten-4" style="overflow-y:auto; min-height:calc( 100vh - 64px ); padding:0px;">
-
-     <li class="no-padding">
-          <ul class="collapsible collapsible-accordion" style="margin: 0px;">
-            <li class="bold"><a class="collapsible-header waves-effect waves-teal" tabindex="0">Abonnements</a>
-              <div class="collapsible-body" style="">
-                <ul>
-                  <li><a href="chaine.view.php">Chaine 1</a></li>
-                  <li><a href="chaine.view.php">Chaine 2</a></li>
-                  <li><a href="chaine.view.php">Chaine 3</a></li>
-                  <li><a href="chaine.view.php">Chaine 4</a></li>
-                  <li><a href="chaine.view.php">Chaine 5</a></li>
-                  <li><a href="chaine.view.php">Chaine 6</a></li>
-                  <li><a href="chaine.view.php">Chaine 7</a></li>
-                </ul>
-              </div>
-            </li>
-
       </div>
 
-       <div class="col s4" style="width: 246px; padding: 0px;">
+
+
+<div class="col s4" style="width: 246px; padding: 0px;">
   <!-- Promo Content 1 goes here -->
   <a href="video.view.php"> <img src="../img/walkthroughfire.jpg" alt=""></a>
   <p>WalkthroughFire</p>
@@ -60,8 +45,7 @@
   <a href="video.view.php"> <img src="img/EverybodyKnows.jpg" alt=""> </a>
   <p>EverybodyKnows</p>
 </div>
-    </div>
-
+</div>
    
 
   </body>

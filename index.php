@@ -1,33 +1,34 @@
 <?php
-    
-    $uid = 0;
-    $uname = '';
-    $error = 'undefined error';
+    $GLOBALS['uname'] = 'undefined';
+    $GLOBALS['uid'] = 0;
+    $error = 'undefined';
     $isLog = true;
 
     include 'queries.controller.php';
 
-    $act = $_GET['act'];
-    if(isset($act)){
+    tryLogingCookie();
+
+    if(isset($_GET['act'])){
+        $act = $_GET['act'];
         if($act == "login"){
-            $uid = login();
-            if($uid > 0)
+            $GLOBALS['uid'] = login();
+            if($GLOBALS['uid'] > 0)
                 include 'vue/accueil.view.php';
             else{
-                if($uid == -1)
+                if($GLOBALS['uid'] == -1)
                     $error = "User does not exist";
-                else if($uid == -2)
+                else if($GLOBALS['uid'] == -2)
                     $error = "Invalid password";
                 else{
-                    $error = "unreachable error... ???";
+                    $error = "uid=0";
                 }
                 include 'vue/error.view.php';
             }
         }
 
         else if($act == "register"){
-            $uid = register();
-            if($uid){
+            $GLOBALS['uid'] = register();
+            if($GLOBALS['uid']){
                 include 'vue/accueil.view.php';  
             }
             else{
@@ -38,16 +39,15 @@
 
         else if($act == "login_page"){
             $isLog = true;
-            include 'connection.view.php';
+            include 'vue/connection.view.php';
         }
 
         else if($act == "register_page"){
             $isLog = false;
-            include 'connection.view.php';
+            include 'vue/connection.view.php';
         }
 
         else{
-            $uid = tryLogingCookie();
             include 'vue/accueil.view.php';
         }
 

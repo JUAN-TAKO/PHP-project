@@ -1,7 +1,7 @@
 <?php
+    
     include 'model/queries.php';
-    global $cookieValidityTime;
-    $cookieValidityTime = 2592000;
+    $GLOBALS['cookieValidityTime'] = 2592000;
     function login(){
         if(isset($_POST['username']) && isset($_POST['password'])){
             $model = new Model("model/database.db");
@@ -15,12 +15,11 @@
         }
     }
     function tryLogingCookie(){
-        $sid = $_COOKIE['sid'];
-        $uid = 0;
-        if(isset($sid)){
-            $uid = q_login_cookie($sid, $cookieValidityTime);
-            q_update_cookie($uid);
+        if(isset($_COOKIE['sid'])){
+            $model = new Model("model/database.db");
+            $sid = $_COOKIE['sid'];
+            $GLOBALS['uid'] = $model->q_login_cookie($sid, $GLOBALS['cookieValidityTime']);
+            $model->q_update_cookie($GLOBALS['uid']);
         }
-        return $uid;
     }
 ?>

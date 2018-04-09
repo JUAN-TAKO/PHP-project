@@ -59,7 +59,7 @@ global $isLog;
       <div class="container">
         <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-          <form class="col s12" action="../index.php?act=<?php if($isLog) echo 'login'; else echo 'register'; ?>" method="post">
+          <form class="col s12" action="?act=<?php if($isLog) echo 'login'; else echo 'register'; ?>" method="post">
             <div class='row'>
               <div class='col s12'>
               </div>
@@ -91,7 +91,7 @@ global $isLog;
           </form>
         </div>
       </div>
-      <?php if(!$isLog) echo '<a href="../action.handler.php?act=register_page">Create account</a>'; ?>
+      <?php if($isLog) echo '<a href="?act=register_page">Create account</a>'; ?>
     </center>
 
     <div class="section"></div>

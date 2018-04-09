@@ -10,11 +10,12 @@
         }
 
         function q_login(string $username, string $pwd){
-            $stmt = $this->pdo->prepare('SELECT username, id, pwd FROM users WHERE username = ?');
+            $stmt = $this->pdo->prepare('SELECT username, id, session_cookie, pwd FROM users WHERE username = ?');
             $stmt->execute([$username]);
             if($res = $stmt->fetch()){
                 if(password_verify($pwd, $res['pwd'])){
-                    $uname = $res['username'];
+                    $GLOBALS['uname'] = $res['username'];
+                    setcookie('sid', $res['session_cookie'], time() + $GLOBALS['cookieValidityTime'], '');
                     return $res['id'];
                 }
                 else
@@ -26,14 +27,13 @@
 
         function q_login_cookie(string $cookie){
 
-            $dateMin = time() - $cookieValidityTime;
-            $stmt = $this->pdo->prepare('SELECT username, id FROM users WHERE session_cookie = ? AND date_cookie > ?');
+            $dateMin = time() - $GLOBALS['cookieValidityTime'];
+            $stmt = $this->pdo->prepare('SELECT username, id FROM users WHERE session_cookie = ? AND cookie_date > ?');
             $stmt->execute([$cookie, $dateMin]);
             $res;
             if($res = $stmt->fetch()){
-                $uname = $res['username'];
-                $id = $res['id'];
-                return $id;
+                $GLOBALS['uname'] = $res['username'];
+                return $res['id'];
             }
             else{
                 return 0;
@@ -46,7 +46,7 @@
             $session_cookie = random_bytes(16);
             $cookie_date = time();
             
-            setcookie('sid', $session_cookie, $cookieValidityTime, '');
+            setcookie('sid', $session_cookie, $cookie_date + $GLOBALS['cookieValidityTime'], '');
             $stmt = $this->pdo->prepare('UPDATE users SET session_cookie = ?, cookie_date = ? WHERE id = ?');
             $stmt->execute([$session_cookie, $cookie_date, $userId]);
 
@@ -59,9 +59,10 @@
             if($stmt->fetchColumn() != 0)
                 return false;
             $pass = password_hash($pwd, PASSWORD_DEFAULT);
-            $stmt = $this->pdo->prepare('INSERT INTO users(username, pwd, reg_date, session_cookie, cookie_date) VALUES(?, ?, ?, ?)');
-            $stmt->execute([$username, $pass, time(),random_bytes(16) ,time()]);
-    
+            $session_cookie = random_bytes(16);
+            $stmt = $this->pdo->prepare('INSERT INTO users(username, pwd, reg_date, session_cookie, cookie_date) VALUES(?, ?, ?, ?, ?)');
+            $stmt->execute([$username, $pass, time(), $session_cookie, time()]);
+            setcookie('sid', $session_cookie, time() + $GLOBALS['cookieValidityTime'], '');
             $stmt = $this->pdo->prepare('SELECT id FROM users WHERE username = ?');
             $stmt->execute([$username]);
 

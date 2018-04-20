@@ -1,0 +1,37 @@
+-Un utilisateur a un pseudo et un mot de passe
+-il peut acceder a la page de login en cliquant sur "compte" (si il n'est pas connecté) ou <son-nom> -> changer de compte (si il est connecté)
+-il peut naviguer entre la page de login et la page register en cliquant sur le lien "se connecter/creer un compte"
+-il peut cocher une case "remember me", si il ne la coche pas, sa session est gérée avec les sessions php, si il la coche, elle sera gérée avec un cookie (expire au bout d'un mois)
+-si il est connecté, son nom sera affiché en haut a droite de l'écran, a la place de "compte"
+-une fois connecté, il peut a tout moment voir sa chaine, changer de compte ou se déconnecter en cliquant sur son nom
+-l'utilisateur peut poster des vidéos en cliquant sur "publier"
+-il peut choisir un fichier mp4 pour la vidéo, un fichier png ou jpg pour la miniature, un titre et une description pour la vidéo
+-si il n'est pas connecté, il ne peut pas poster de vidéo, le site lui proposera alors un bouton "Se connecter" a la place du formulaire
+-sur la page d'accueil, les dernière vidéos sont affichées, avec leur miniature, leur titre, leur auteur et leur nombre de vue
+-si il clique sur la miniature ou le titre d'une vidéo, il sera redirigé vers la page de lecture et une vue sera ajoutée a la vidéo.
+-sur la page de lecture, on peut regarder la vidéo, elle dmarre automatiquement;
+-en dessous se trouve le nom de l'auteur, la description le nombre de vues et l'espace commentaire.
+-on peut voir l nombre de commentaires
+-si l'utilisateur est connecté, il pourra écrire un commentaire, sinon le site lui proposera un bouton "se connecter"
+-les commentaires se trouvent en dessous, du plus récent au plus vieux, composé du nom de l'utilisateur qui l'a posté et de son contenu
+-les liens se trouvant dans la description ou dans un commentaire sont automatiquement transformés en balise <a>
+-les chiffres du nombre de vue sont formatés : "1,234,567"
+-quand l'utilisateur publie un commentaire, il est affiché en temps réel, il n'y a pas besoin de recharger la page.
+-si on clique sur un nom d'utilisateur, on est renvoyé vers sa chaine, ou seul ses vidéos sont affichées.
+-un bandeau affiche alors le nom de la chaine.
+-cela vaut pour les noms d'auteurs sous les vidéos, les commentaires, etc
+-a droite de la partie vidéos + commentaires se trouve la section recommendations, les dernières vidéos sont affichées également mais pas celle en cours de visionnage
+-pour la section recommendations, les informations liées a une vidéos (titre, auteur, vues) sont affichées a droite de la miniature et non pas en dessous
+-a droite du nom de l'auteur d'une vidéo se trouve un bouton "S'abonner"
+-si l'utilisateur n'est pas connecté, il sera grisé et cliquer dessus affichera un message "vous devez d'abord vous connecter"
+-si il est connecté mais pas abonné, il peut cliquer dessus pour s'abonner, cela affichera le message "abonnement ajouté"
+-si il est connecté et déjà abonné, alors le bouton sera renomé "se désabonner" et il pourra cliquer dessus pour retirer son abonnement (affiche un message également)
+-les abonnements sont efficaces en temps réel, pas besoin de recharger la page.
+-le bouton ne s'affiche pas si l'utilisateur est sur une de ses propres vidéos.
+-le bouton s'affiche également sur la chaine des autres utilisateur, a droite du bandeau
+-sur certaines pages, a gauche se trouve la liste des abonnement. Les noms des chaines auxquelles l'utilisateur est abonné sont affichées
+-cliquer sur un nom redireige vers la chaine concernée.
+-si de nouvelles vidéos ont été postées sur la chaine, un petit badge rouge sera affiché a côté du nom pour indiquer le nombre de nouvelles vidéos
+-le badge disparait quand on visite la chaine.
+-il est possible de rechercher une vidéo grace a la barre de recherche
+-le site est (normalement) protégé contre les injections SQL, XSS et les attaques par fichiers

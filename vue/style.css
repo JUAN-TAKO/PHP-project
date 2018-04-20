@@ -1,0 +1,338 @@
+#list{
+    position: fixed;
+    overflow-y: auto;
+    top:64px;
+    height: calc(100vh - 64px);
+    left:0px;
+    padding:0px;
+}
+#subscribtions-title{
+    font-weight: bold;
+    margin-left: 20px;
+    overflow: hidden;
+}
+#list-content{
+    padding-top: 10px;
+}
+#logo:hover{
+    background-color: transparent;
+}
+#logo-icon{
+    font-size: 40px;
+    color:inherit;
+}
+#uname{
+    float:right;
+    margin-left:10px;
+    margin-right:10px;
+}
+#account{
+    float: right;
+    padding-left: 15px;
+}
+#account:hover{
+    background-color: rgba(0,0,0,0.17);
+}
+
+#main-page{
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#form-title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+#form-container > *{
+    float: none;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+#upload-main-page{
+    padding-top: 40px;
+}
+#main-play{
+    width: 80%;
+    margin-left:auto;
+    margin-right: auto;
+}
+#center-play{
+    margin-top: 50px;
+}
+#video-comments{
+    padding: 0px;
+}
+#main-video{
+    width:100%;
+    margin: 0px;
+}
+#main-video-title{
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 5px !important;
+    margin-left: 5px;
+    color: black;
+    overflow: hidden;
+    padding-bottom: 6px;
+}
+#main-video-channel{
+    color: black;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 5px;
+}
+#main-video-views{
+    color: #555;
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 5px;
+}
+#recommendations{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#comment-title{
+    font-size: 20px;
+    color:black;
+    margin-left: 5px;
+    font-weight: bold;
+}
+#write-comment{
+    margin-left: 5px;
+}
+#comment-text{
+    margin-left: 10px;
+}
+#description{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#send-icon{
+    font-size:32px;
+    margin-top:32px;
+}
+
+#form-submit{
+    background-color: #e53935;
+    float: none;
+    display:block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#form-submit:hover{
+    background-color: #e53935;
+}
+#subscribe-button{
+    float:right;
+}
+#comment-username{
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+#channel-banner{
+    height:64px;
+    margin:0px;
+    padding-top: 14px;
+    padding-right: 10px;
+    padding-left: 5px;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.17);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.17);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.17);
+}
+#channel-title{
+    margin: 0px;
+    float:left;
+}
+#connection-container{
+    display: inline-block;
+    padding: 32px 48px 0px 48px;
+    border: 1px solid #EEE;
+}
+
+#connection-body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #fff;
+}
+
+#connection-main {
+    flex: 1 0 auto;
+}
+
+.input-field input[type=date]:focus + label,
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+    color: #e53935;
+}
+
+.input-field input[type=date]:focus,
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+    border-bottom: 2px solid #e53935;
+    box-shadow: none;
+}
+
+
+.comment{
+    margin-left:30px;
+}
+.comment-username{
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.comment-content{
+    margin-left: 0px;
+    padding-right: 50px;
+    margin-top: 5px;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    font-size: 15px;
+}
+
+.dropdown-elem{
+    color: #444 !important;
+    padding-left: 20px !important;
+    padding-right: 30px !important;
+}
+
+.subscribtion{
+    font-size:18px;
+    padding: 10px;
+    padding-left:20%;
+    overflow: hidden;
+}
+.subscribtion > a{
+    color:#444;
+}
+.subscribtion:hover{
+    background-color: #ccc;
+}
+.empty{
+    margin: 0px;
+    height: 0px;
+    padding: 0px;
+}
+.video{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin: 0px !important;
+    width: 270px !important;
+    padding-bottom: 20px !important;
+}
+.video-small{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin: 0px !important;
+    width: auto !important;
+    padding-bottom: 20px !important;
+}
+.float-left{
+    float:left !important;
+}
+.video-title{
+    display: block;
+    margin: 0px;
+    margin-top: 2px;
+    font-weight:bold;
+    font-size: 16px;
+    color: black;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
+}
+.video-channel{
+    color: #555;
+    font-size: 13px;
+    margin: 0px;
+    margin-top: 3px;
+}
+.video-views{
+    color: #555;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.line-separator{
+    height:1px;
+    border-bottom:1px solid #DDD;
+    margin-left: 5px;
+    margin-right: 5px;   
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+/* label focus color */
+.input-field textarea:focus + label {
+    color: #e53935 !important;
+}
+/* label underline focus color */
+.input-field textarea:focus {
+    border-bottom: 1px solid #e53935 !important;
+    box-shadow: 0 1px 0 0 #e53935 !important;
+}
+.input-field input[type=text]:focus + label {
+    color: #e53935 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #e53935 !important;
+    box-shadow: 0 1px 0 0 #e53935 !important;
+}
+.btn{
+    background-color: #e53935;
+}
+.btn:hover{
+    background-color: #e55955;
+}
+.btn:active{
+    background-color: #e53935;
+}
+.btn:visited{
+    background-color: #e53935;
+}
+.btn:focus{
+    background-color: #e53935;
+}
+.fake-disabled{
+    background-color: #AAA !important;
+}
+.fake-disabled:active{
+    background-color: #AAA !important;
+}
+.fake-disabled:visited{
+    background-color: #AAA !important;
+}
+.fake-disabled:focus{
+    background-color: #AAA !important;
+}
+.fake-disabled:hover{
+    background-color: #AAA !important;
+}
+
+
+.file-btn{
+    width: 120px;
+}
+
+a > i{
+    color: #555;
+}
+a > i:hover{
+    color: #e53935;
+    cursor: pointer;
+}

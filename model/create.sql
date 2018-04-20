@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS VIDEOS(
     description TEXT(4096),
     pub_date INTEGER,
     creator_id INTEGER,
-
+    views INTEGER,
+    
     FOREIGN KEY (creator_id) REFERENCES USERS(id)
 );
 
@@ -36,6 +37,7 @@ CREATE TABLE IF NOT EXISTS COMMENTS(
 CREATE TABLE IF NOT EXISTS SUBSCRIBTIONS(
     channel_id INTEGER,
     subscriber_id INTEGER,
+    last_seen INTEGER,
 
     FOREIGN KEY(channel_id) REFERENCES USERS(id),
     FOREIGN KEY(subscriber_id) REFERENCES USERS(id),

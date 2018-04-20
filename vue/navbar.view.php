@@ -1,58 +1,47 @@
-
-
-<!DOCTYPE html>
-
-<html>
-
-  <head>
-
-    <!--Import Google Icon Font-->
-
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!--Import materialize.css-->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-
-    <!--Let browser know website is optimized for mobile-->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  </head>
-
-
-  <body>
-
-    <!--Import jQuery before materialize.js-->
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
-    <div class="navbar-fixed">
+<div>
+  <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper red darken-1">
-        <a href="." class="brand-logo" style="color:yellow;">Ourtube</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-            <form action="resultat.php" method="GET">
-            <input type="text" placeholder="Search..">
-            
-            </form>
-          </li>
-          
-          
-          <li><a href="">Mettre en ligne</a></li>
-          <li><a href="?act=login_page"><?php if($GLOBALS['uid'] > 0) echo $GLOBALS['uname']; else Echo 'Compte'; ?></a></li>
-          <li><i class="medium material-icons">account_circle</i></li>
+        <ul class="row">
+          <li class="col s2" style="float:left;"><a href="." id="logo" class="brand-logo" style="padding-left:20px;"><i class="material-icons" id="logo-icon">play_circle_outline</i>OurTube</a></li>
+
+          <ul id="dropdown-account" class="dropdown-content">
+            <li><a class="dropdown-elem" href="/?channel=0"><i class="col s1 medium material-icons">videocam</i>Ma chaine</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="dropdown-elem" href="?act=login_page"><i class="col s1 medium material-icons">loop</i>Changer de compte</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="dropdown-elem" href="?act=logout"><i class="col s1 medium material-icons">power_settings_new</i>Se déconnecter</a></li>
+          </ul>
+          <?php
+            if($user->id > 0){
+              echo '<li id="account" class="dropdown-trigger" data-target="dropdown-account"><a>';
+            }else{
+              echo '<li id="account"><a href="?act=login_page">';
+            }
+          ?> 
+
+            <div>
+              <div id="uname"><?php if($user->id > 0) echo $user->nom; else Echo 'Compte'; ?></div>
+              <i class="medium material-icons" style="float:right;">account_circle</i>          
+            </div>
+          </a></li>
+
+          <li style="float:right;"><a href="?act=upload">
+            <div class="row">
+              <i class="col s1 medium material-icons">file_upload</i>
+              <div class="col s8" style="margin-left:10px;">Publier</div>
+            </div>
+          </a></li>
+          <li style="padding:0px; width:auto; float:none; display:block; position:relative; overflow:hidden;"><form method="GET" action="">
+            <div class="input-field">
+              <input name="q" id="search" type="search" placeholder="Rechercher...">
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form></li>
         </ul>
       </div>
     </nav>
-    </div>
-
-  </body>
-
-</html>
-
+  </div>
+</div>
     

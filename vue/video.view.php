@@ -1,41 +1,23 @@
-<!DOCTYPE html>
+<?php
+function video(string $title, string $path, string $id, string $channel_id, string $channel, string $views){
+  $views = number_format($views);
+  echo "<div class=\"video\">\n";
+  echo "\t<a href=\"/?v=$id\"><img class=\"responsive-img\" src=\"$path\"></a>\n";
+  echo "\t<a class=\"video-title\" href=\"/?v=$id\">$title</a>\n";
+  echo "\t<a class=\"video-channel\" href=\"/?channel=$channel_id\">$channel</a>\n";
+  echo "\t<p class=\"video-views\">$views vues</p>\n";
+  echo "</div>\n";
+}
 
-  <html>
-
-    <head>
-
-      <!--Import Google Icon Font-->
-
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-      <!--Import materialize.css-->
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-
-      <!--Let browser know website is optimized for mobile-->
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    </head>
-
-
-    <body>
-
-      <!--Import jQuery before materialize.js-->
-
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
-    <?php include 'navbar.view.php'?>
-
-    <video class="responsive-video" controls>
-        <source src="../videos/WalkThroughFire.mp4" type="video/mp4">
-    </video>
-
-      
-
-    </body>
-
-  </html>
+function video_small(string $title, string $path, string $id, string $channel_id, string $channel, string $views){
+  $views = number_format($views);
+  echo "<div class=\"video-small row\">\n";
+  echo "\t<a href=\"/?v=$id\" class=\"col s6\"><img class=\"responsive-img\" src=\"$path\"></a>\n";
+  echo "\t<div class=\"col s6\">\n";
+  echo "\t\t<a class=\"video-title\" href=\"/?v=$id\">$title</a>\n";
+  echo "\t\t<a class=\"video-channel\" href=\"/?channel=$channel_id\">$channel</a>\n";
+  echo "\t\t<p class=\"video-views\">$views vues</p>\n";
+  echo "\t</div>\n";
+  echo "</div>\n";
+}
+?>
